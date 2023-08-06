@@ -2,7 +2,9 @@ package com.vk.mobileservices.model;
 
 
 import com.vk.mobileservices.enums.ShopType;
-import jakarta.persistence.*;
+
+import javax.persistence.*;
+
 
 @Entity
 @Table(name = "shop")
