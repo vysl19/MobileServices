@@ -1,13 +1,19 @@
 spring:
   datasource:
-    url: jdbc:postgresql://10.42.96.3:5432/postgres
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql:///postgres
+#    url: "jdbc:postgresql:///postgresql?cloudSqlInstance=smart-arc-395110:europe-west4:postgres:springboot-gcp-cloudsql-instance&socketFactory=com.google.cloud.sql.postgres.SocketFactory&user=postgres&password=postgres"
     username: postgres
     password: postgres
+    hikari:
+      data-source-properties:
+        socketFactory: com.google.cloud.sql.postgres.SocketFactory
+        cloudSqlInstance: smart-arc-395110:europe-west4:postgres
   jpa:
     hibernate:
       ddl-auto: update
-      show-sql: true
-      properties:
-        hibernate:
-          format_sql: true
-          dialect: org.hibernate.dialect.PostgreSQLDialect
+#      show-sql: true
+#      properties:
+#        hibernate:
+#          format_sql: true
+#          dialect: org.hibernate.dialect.PostgreSQLDialect
