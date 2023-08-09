@@ -1,10 +1,10 @@
 package com.vk.mobileservices.repository;
 
 import com.vk.mobileservices.dto.ShopSelectRequestDto;
-import com.vk.mobileservices.dto.ShopSelectResponse;
+import com.vk.mobileservices.dto.ShopSelectResponseDto;
 
 import java.util.List;
 
 public interface IShopCustomRepository {
-    List<ShopSelectResponse> getShops(ShopSelectRequestDto selectRequestDto);
+    List<ShopSelectResponseDto> getShops(ShopSelectRequestDto selectRequestDto);
 }

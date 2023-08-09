@@ -2,8 +2,7 @@ package com.vk.mobileservices.service;
 
 import com.vk.mobileservices.dto.ShopCreateRequestDto;
 import com.vk.mobileservices.dto.ShopSelectRequestDto;
-import com.vk.mobileservices.dto.ShopSelectResponse;
-import com.vk.mobileservices.enums.ShopType;
+import com.vk.mobileservices.dto.ShopSelectResponseDto;
 import com.vk.mobileservices.model.Shop;
 import com.vk.mobileservices.repository.ShopCustomRepository;
 import com.vk.mobileservices.repository.ShopRepository;
@@ -27,7 +26,7 @@ public class ShopService implements IShopService {
     }
 
     @Override
-    public List<ShopSelectResponse> getShops(ShopSelectRequestDto requestDto) {
+    public List<ShopSelectResponseDto> getShops(ShopSelectRequestDto requestDto) {
         return shopCustomRepository.getShops(requestDto);
     }
 }

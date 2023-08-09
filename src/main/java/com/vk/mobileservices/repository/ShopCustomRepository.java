@@ -1,8 +1,7 @@
 package com.vk.mobileservices.repository;
 
 import com.vk.mobileservices.dto.ShopSelectRequestDto;
-import com.vk.mobileservices.dto.ShopSelectResponse;
-import com.vk.mobileservices.enums.ShopType;
+import com.vk.mobileservices.dto.ShopSelectResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
@@ -21,7 +20,7 @@ public class ShopCustomRepository implements IShopCustomRepository {
     private final ModelMapper modelMapper = new ModelMapper();
 
     @Override
-    public List<ShopSelectResponse> getShops(ShopSelectRequestDto selectRequestDto) {
+    public List<ShopSelectResponseDto> getShops(ShopSelectRequestDto selectRequestDto) {
         StringJoiner joiner = new StringJoiner(" ");
         Map<String, Object> parameters = new HashMap<>();
         joiner.add("Select new map(s.id as id, s.name as name, s.latitude as latitude, s.longitude as longitude, s.discountRate as discountRate, s.address as address, s.cardType as cardType, s.shopType as shopType) from  Shop as s where 1 = 1");
@@ -53,7 +52,7 @@ public class ShopCustomRepository implements IShopCustomRepository {
         for (String key : parameters.keySet()) {
             query.setParameter(key, parameters.get(key));
         }
-        Type listType = new TypeToken<List<ShopSelectResponse>>() {
+        Type listType = new TypeToken<List<ShopSelectResponseDto>>() {
         }.getType();
         return modelMapper.map(query.getResultList(), listType);
     }

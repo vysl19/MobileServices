@@ -10,7 +10,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ShopSelectResponse {
+public class ShopSelectResponseDto {
     private long id;
     private String name;
     private String address;
